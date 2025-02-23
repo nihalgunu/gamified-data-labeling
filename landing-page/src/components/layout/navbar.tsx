@@ -5,7 +5,7 @@ export function Navbar() {
     <nav className="fixed w-full top-0 z-50 px-6 py-4">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link href="/" className="text-white/90 text-xl font-medium">
-          DataLabel
+          Summit
         </Link>
         <div className="flex items-center gap-8">
           <Link href="#features" className="text-white/75 hover:text-white text-sm transition-colors">

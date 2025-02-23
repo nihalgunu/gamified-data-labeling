@@ -25,7 +25,7 @@ export function Footer() {
     <footer className="bg-[var(--footer-background)] text-[var(--text-white)] px-6 py-12">
       <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-8">
         <div>
-          <h3 className="text-xl font-bold mb-4">DataLabel</h3>
+          <h3 className="text-xl font-bold mb-4">Summit</h3>
           <p className="text-[var(--text-white)]">
             Build ethical AI labeling pipelines in minutes with our no‑code platform.
           </p>

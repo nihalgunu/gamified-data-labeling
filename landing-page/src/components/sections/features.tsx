@@ -24,24 +24,25 @@ export function Features() {
     <section className="relative py-16">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-start">
+          
           {/* Left Side: Features */}
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold mb-8 text-white">User Experience</h2>
-            <div className="space-y-6">
+          <div className="flex flex-col gap-24">
+            <h2 className="text-3xl font-bold text-white">User Experience</h2>
+            <div className="flex flex-col gap-12">
               {features.map((feature) => (
                 <div
                   key={feature.title}
-                  className="bg-white/10 backdrop-blur-lg rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl"
+                  className="bg-white rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl"
                 >
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-start gap-8">
                     <div className="shrink-0">
-                      <feature.icon className="h-6 w-6 text-teal-400" />
+                      <feature.icon className="h-8 w-8 text-teal-500" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2 text-white">
+                      <h3 className="text-xl font-semibold mb-3 text-gray-900">
                         {feature.title}
                       </h3>
-                      <p className="text-white/90 leading-relaxed">
+                      <p className="text-gray-700 leading-relaxed">
                         {feature.description}
                       </p>
                     </div>
