@@ -26,22 +26,22 @@ export function Features() {
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Left Side: Features */}
           <div className="space-y-6">
-            <h2 className="text-3xl font-bold mb-8">User Experience</h2>
+            <h2 className="text-3xl font-bold mb-8 text-white">User Experience</h2>
             <div className="space-y-6">
               {features.map((feature) => (
                 <div
                   key={feature.title}
-                  className="bg-white rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl"
+                  className="bg-white/10 backdrop-blur-lg rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl"
                 >
                   <div className="flex items-start gap-4">
                     <div className="shrink-0">
-                      <feature.icon className="h-6 w-6 text-teal-500" />
+                      <feature.icon className="h-6 w-6 text-teal-400" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">
+                      <h3 className="text-xl font-semibold mb-2 text-white">
                         {feature.title}
                       </h3>
-                      <p className="text-gray-600 leading-relaxed">
+                      <p className="text-white/90 leading-relaxed">
                         {feature.description}
                       </p>
                     </div>
