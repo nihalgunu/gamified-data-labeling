@@ -21,7 +21,7 @@ const Pipeline = () => {
           <div className="order-1 md:order-2">
             <div className="bg-white/10 rounded-2xl p-1 transition-transform duration-300 hover:scale-105">
               <img
-                src="/api/placeholder/600/400"
+                src="/images/1.png"
                 alt="Upload step"
                 className="w-full rounded-xl"
               />
@@ -34,7 +34,7 @@ const Pipeline = () => {
           <div>
             <div className="bg-white/10 rounded-2xl p-1 transition-transform duration-300 hover:scale-105">
               <img
-                src="/api/placeholder/600/400"
+                src="/images/2.png"
                 alt="Define tasks"
                 className="w-full rounded-xl"
               />
@@ -62,7 +62,7 @@ const Pipeline = () => {
           <div className="order-1 md:order-2">
             <div className="bg-white/10 rounded-2xl p-1 transition-transform duration-300 hover:scale-105">
               <img
-                src="/api/placeholder/600/400"
+                src="/images/3.png"
                 alt="Engage community"
                 className="w-full rounded-xl"
               />
@@ -75,7 +75,7 @@ const Pipeline = () => {
           <div>
             <div className="bg-white/10 rounded-2xl p-1 transition-transform duration-300 hover:scale-105">
               <img
-                src="/api/placeholder/600/400"
+                src="/images/4.png"
                 alt="Monitor progress"
                 className="w-full rounded-xl"
               />
