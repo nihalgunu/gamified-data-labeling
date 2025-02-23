@@ -5,7 +5,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:substring_highlight/substring_highlight.dart';
 
 class ClassificationPage extends StatefulWidget {
-  const ClassificationPage({super.key});
+  const ClassificationPage({super.key, required this.title});
+  final String title;
 
   @override
   State<ClassificationPage> createState() => _ClassificationPageState();
@@ -18,10 +19,25 @@ class _ClassificationPageState extends State<ClassificationPage> {
   List<String> newImageUrls = [];
 
   int currentPage = 0;
-  final List<String> suggestions = ["Dog", "Cat", "Car", "Tree", "Building"];
+  final List<String> suggestions = [
+    "Deer",
+    "Elephant",
+    "Bike",
+    "Player",
+    "Sportsman",
+    "Bee",
+    "Flower",
+    "Apple",
+    "Dog",
+    "Cat",
+    "Bottle",
+    "Building",
+    "Backpack"
+  ];
 
   @override
   Widget build(BuildContext context) {
+    // Process the classification URLs on every build (consider moving this to initState for performance)
     for (String url in classification) {
       final RegExp regExp = RegExp(r'/d/([^/]+)/');
       final match = regExp.firstMatch(url);
@@ -40,7 +56,7 @@ class _ClassificationPageState extends State<ClassificationPage> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -52,6 +68,7 @@ class _ClassificationPageState extends State<ClassificationPage> {
         child: SafeArea(
           child: Stack(
             children: [
+              // Main content
               Column(
                 children: [
                   Padding(
@@ -73,6 +90,11 @@ class _ClassificationPageState extends State<ClassificationPage> {
                         itemCount: newImageUrls.length,
                         physics: PageScrollPhysics(),
                         scrollDirection: Axis.vertical,
+                        onPageChanged: (index) {
+                          setState(() {
+                            currentPage = index;
+                          });
+                        },
                         itemBuilder: (context, index) {
                           return Stack(
                             children: [
@@ -96,23 +118,21 @@ class _ClassificationPageState extends State<ClassificationPage> {
                                       imageUrl: newImageUrls[index],
                                       fit: BoxFit.cover,
                                       width: double.infinity,
-                                      placeholder:
-                                          (context, url) => Center(
-                                            child: CircularProgressIndicator(
-                                              color: darkBlue,
-                                            ),
-                                          ),
-                                      errorWidget:
-                                          (context, url, error) => Icon(
-                                            Icons.error,
-                                            color: Colors.red,
-                                          ),
+                                      placeholder: (context, url) => Center(
+                                        child: CircularProgressIndicator(
+                                          color: darkBlue,
+                                        ),
+                                      ),
+                                      errorWidget: (context, url, error) => Icon(
+                                        Icons.error,
+                                        color: Colors.red,
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
                               Positioned(
-                                bottom: 30,
+                                bottom: 50,
                                 left: 20,
                                 right: 20,
                                 child: Padding(
@@ -134,78 +154,63 @@ class _ClassificationPageState extends State<ClassificationPage> {
                                       ],
                                     ),
                                     child: Autocomplete(
-                                      optionsBuilder: (
-                                        TextEditingValue textEditingValue,
-                                      ) {
+                                      optionsBuilder: (TextEditingValue textEditingValue) {
                                         if (textEditingValue.text.isEmpty) {
                                           return const Iterable<String>.empty();
                                         } else {
                                           return suggestions.where(
-                                            (word) =>
-                                                word.toLowerCase().contains(
-                                                  textEditingValue.text
-                                                      .toLowerCase(),
-                                                ),
+                                                (word) => word.toLowerCase().contains(
+                                              textEditingValue.text.toLowerCase(),
+                                            ),
                                           );
                                         }
                                       },
                                       optionsViewBuilder: (
-                                        context,
-                                        Function(String) onSelected,
-                                        options,
-                                      ) {
+                                          context,
+                                          Function(String) onSelected,
+                                          options,
+                                          ) {
                                         return Align(
                                           alignment: Alignment.topLeft,
                                           child: Container(
                                             decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(22),
+                                              borderRadius: BorderRadius.circular(22),
                                               color: Colors.transparent,
                                             ),
                                             padding: EdgeInsets.all(8.0),
                                             child: Wrap(
                                               spacing: 8.0,
                                               runSpacing: 4.0,
-                                              children:
-                                                  options.map<Widget>((option) {
-                                                    return ActionChip(
-                                                      label: Text(
-                                                        option.toString(),
-                                                      ),
-                                                      surfaceTintColor:
-                                                          Colors.transparent,
-                                                      onPressed: () {
-                                                        onSelected(
-                                                          option.toString(),
-                                                        );
-                                                      },
-                                                    );
-                                                  }).toList(),
+                                              children: options.map<Widget>((option) {
+                                                return ActionChip(
+                                                  label: Text(option.toString()),
+                                                  surfaceTintColor: Colors.transparent,
+                                                  onPressed: () {
+                                                    onSelected(option.toString());
+                                                  },
+                                                );
+                                              }).toList(),
                                             ),
                                           ),
                                         );
                                       },
                                       onSelected: (selectedString) {},
                                       fieldViewBuilder: (
-                                        context,
-                                        controller,
-                                        focusNode,
-                                        onEditingComplete,
-                                      ) {
+                                          context,
+                                          controller,
+                                          focusNode,
+                                          onEditingComplete,
+                                          ) {
                                         return TextField(
                                           textAlign: TextAlign.left,
                                           controller: controller,
                                           focusNode: focusNode,
                                           onEditingComplete: () {
-                                            FocusScope.of(
-                                              context,
-                                            ).unfocus(); // Dismiss the keyboard
+                                            FocusScope.of(context).unfocus(); // Dismiss the keyboard
                                             onEditingComplete(); // Call the provided callback
                                             if (controller.text != '') {
                                               _pageController.nextPage(
-                                                duration: Duration(
-                                                  milliseconds: 800,
-                                                ),
+                                                duration: Duration(milliseconds: 800),
                                                 curve: Curves.easeInOutCubic,
                                               );
                                             }
@@ -215,9 +220,7 @@ class _ClassificationPageState extends State<ClassificationPage> {
                                             hintStyle: TextStyle(
                                               color: Colors.white,
                                             ),
-                                            border:
-                                                InputBorder
-                                                    .none, // Removed the border here
+                                            border: InputBorder.none,
                                           ),
                                         );
                                       },
@@ -232,6 +235,17 @@ class _ClassificationPageState extends State<ClassificationPage> {
                     ),
                   ),
                 ],
+              ),
+              // Back arrow button at the top left.
+              Positioned(
+                top: 5,
+                left: 16,
+                child: IconButton(
+                  icon: Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white, size: 20),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
               ),
             ],
           ),

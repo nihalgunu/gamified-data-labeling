@@ -33,16 +33,70 @@ final List<Widget> imageSliders =
 
 List<Widget> infocards = [
   InfoCard(
-    imageUrl: 'https://picsum.photos/200/300',
+    imageUrl: 'https://picsum.photos/200/500',
     line1: "Lane McCormick",
     line2: "10",
     line3: "101",
   ),
   InfoCard(
-    imageUrl: 'https://picsum.photos/200/400',
+    imageUrl: 'https://picsum.photos/900/500',
     line1: "Bob Dale",
     line2: "12",
     line3: "45",
+  ),
+  InfoCard(
+    imageUrl: 'https://picsum.photos/100/800',
+    line1: "Sarah Thompson",
+    line2: "25",
+    line3: "78",
+  ),
+  InfoCard(
+    imageUrl: 'https://picsum.photos/600/700',
+    line1: "Ethan Carter",
+    line2: "31",
+    line3: "92",
+  ),
+  InfoCard(
+    imageUrl: 'https://picsum.photos/300/500',
+    line1: "Olivia Bennett",
+    line2: "19",
+    line3: "37",
+  ),
+  InfoCard(
+    imageUrl: 'https://picsum.photos/200/400',
+    line1: "James Nolan",
+    line2: "28",
+    line3: "55",
+  ),
+  InfoCard(
+    imageUrl: 'https://picsum.photos/200/300',
+    line1: "Sophia Reed",
+    line2: "22",
+    line3: "81",
+  ),
+  InfoCard(
+    imageUrl: 'https://picsum.photos/400/800',
+    line1: "Daniel Foster",
+    line2: "29",
+    line3: "60",
+  ),
+  InfoCard(
+    imageUrl: 'https://picsum.photos/300/200',
+    line1: "Ava Collins",
+    line2: "18",
+    line3: "42",
+  ),
+  InfoCard(
+    imageUrl: 'https://picsum.photos/100/600',
+    line1: "Liam Harrison",
+    line2: "34",
+    line3: "99",
+  ),
+  InfoCard(
+    imageUrl: 'https://picsum.photos/300/500',
+    line1: "Chloe Martin",
+    line2: "27",
+    line3: "74",
   ),
 ];
 
@@ -243,8 +297,8 @@ class MountainPainter extends CustomPainter {
     canvas.drawCircle(leftCircleCenter, circleRadius, circlePaint);
     canvas.drawCircle(rightCircleCenter, circleRadius, circlePaint);
 
-    _drawIndicator(canvas, leftCircleCenter, circleRadius, "Friend 1", "45");
-    _drawIndicator(canvas, rightCircleCenter, circleRadius, "Friend 2", "90");
+    _drawIndicator(canvas, leftCircleCenter, circleRadius, "You", "45");
+    _drawIndicator(canvas, rightCircleCenter, circleRadius, "John Monroe", "90");
   }
 
   void _drawIndicator(
