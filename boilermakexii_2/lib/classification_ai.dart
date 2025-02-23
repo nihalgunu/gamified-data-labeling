@@ -190,7 +190,7 @@ class _ClassificationAIState extends State<ClassificationAI> {
                                 ),
                                 // Positioned autocomplete text field at the bottom of the image container.
                                 Positioned(
-                                  bottom: 10,
+                                  bottom: 20,
                                   left: 20,
                                   right: 20,
                                   child: Container(

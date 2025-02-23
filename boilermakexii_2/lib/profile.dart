@@ -154,10 +154,10 @@ class UserProfile extends StatelessWidget {
                     physics: BouncingScrollPhysics(),
                     child: Column(
                       children: [
-                        ProfileInfoCard(line1: "Processing...", line2: "0", arrow: 0, date: "3/12/25", increased_amt: 0.00),
-                        ProfileInfoCard(line1: "Completed", line2: "3 Incorrect", arrow: -1, date: "3/9/25", increased_amt: 0.00),
-                        ProfileInfoCard(line1: "Completed", line2: "All Correct", arrow: 1, date: "3/6/25", increased_amt: 1.3),
-                        ProfileInfoCard(line1: "Completed", line2: "All Correct", arrow: 1, date: "3/2/25", increased_amt: 1.6),
+                        ProfileInfoCard(line1: "Processing...", line2: "0", arrow: 0, date: "3/23/25", increased_amt: 0.00),
+                        ProfileInfoCard(line1: "Completed", line2: "3 Incorrect", arrow: -1, date: "3/22/25", increased_amt: 0.00),
+                        ProfileInfoCard(line1: "Completed", line2: "All Correct", arrow: 1, date: "3/22/25", increased_amt: 1.3),
+                        ProfileInfoCard(line1: "Completed", line2: "All Correct", arrow: 1, date: "3/21/25", increased_amt: 1.6),
                       ],
                     ),
                   ),
