@@ -21,42 +21,48 @@ const features = [
 
 export function Features() {
   return (
-    <section className="relative section-spacing">
-      <div className="content-container flex flex-col md:flex-row items-start md:items-center">
-        
-        {/* Left side: Title + stacked (vertical) features */}
-        <div className="md:w-1/2 md:pr-8">
-          <h2 className="text-3xl font-bold mb-4">User Experience</h2>
-          <div className="space-y-8">
-            {features.map((feature) => (
-              <div
-                key={feature.title}
-                className="modern-card p-8 flex items-start gap-4"
-              >
-                <feature.icon className="h-8 w-8 text-[var(--gradient-end)]" />
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-text-dark">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600">{feature.description}</p>
+    <section className="relative py-16">
+      <div className="container mx-auto px-4">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          {/* Left Side: Features */}
+          <div className="space-y-6">
+            <h2 className="text-3xl font-bold mb-8 text-white">User Experience</h2>
+            <div className="space-y-6">
+              {features.map((feature) => (
+                <div
+                  key={feature.title}
+                  className="bg-white/10 backdrop-blur-lg rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="shrink-0">
+                      <feature.icon className="h-6 w-6 text-teal-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2 text-white">
+                        {feature.title}
+                      </h3>
+                      <p className="text-white/90 leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          {/* Right Side: Single Image with Both Phones */}
+          <div className="">
+            <div className="">
+              <img
+                src="/images/iphone.jpg"
+                alt="App Interface Screenshots"
+                className=""
+              />
+            </div>
           </div>
         </div>
-
-        {/* Right side: iPhone mockup(s) */}
-        <div className="md:w-1/2 mt-8 md:mt-0 flex justify-center">
-          <Image
-            src="/images/iphone-mockup1.png"
-            alt="iPhone Mockup 1"
-            width={300}
-            height={600}
-            className="object-contain"
-          />
-        </div>
-
       </div>
     </section>
-  );
+  )
 }

@@ -341,9 +341,9 @@ const PlatformPage = () => {
                   value={targetedDemographic}
                   onChange={(e) => setTargetedDemographic(e.target.value)}
                   disabled={isUploading}
-                  className="w-full bg-white/10 rounded-lg px-4 py-2 text-white border border-white/20"
+                  className="w-full bg-white/10 rounded-lg px-4 py-2 text-black border border-white/20"
                 >
-                  {['None', 'Adults', 'Teens', 'Kids'].map((option) => (
+                  {['All', 'School graduates', 'College Graduates', 'Working Adults'].map((option) => (
                     <option key={option} value={option}>
                       {option}
                     </option>
