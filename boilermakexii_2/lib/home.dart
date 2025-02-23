@@ -246,11 +246,13 @@ class InfoCard extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               CircleAvatar(backgroundImage: NetworkImage(imageUrl), radius: 30),
-              SizedBox(width: 12),
+              SizedBox(width: 15),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     line1,
@@ -298,7 +300,7 @@ class MountainPainter extends CustomPainter {
     canvas.drawCircle(rightCircleCenter, circleRadius, circlePaint);
 
     _drawIndicator(canvas, leftCircleCenter, circleRadius, "You", "45");
-    _drawIndicator(canvas, rightCircleCenter, circleRadius, "John Monroe", "90");
+    _drawIndicator(canvas, rightCircleCenter, circleRadius, "John", "90");
   }
 
   void _drawIndicator(

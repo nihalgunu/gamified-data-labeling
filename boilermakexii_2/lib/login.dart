@@ -1,5 +1,7 @@
+import 'package:boilermakexii_2/create_account.dart';
 import 'package:flutter/material.dart';
 import 'package:boilermakexii_2/const.dart';
+import 'package:flutter_svg/svg.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -30,15 +32,14 @@ class LoginPage extends StatelessWidget {
                 children: [
                   // App logo or title
                   CircleAvatar(
-                    radius: 50,
-                    backgroundColor: Colors.white,
-                    child: Icon(
-                      Icons.person,
-                      size: 50,
-                      color: darkBlue,
+                    radius: 90,
+                    backgroundColor: Colors.transparent,
+                    child: SvgPicture.asset('assets/AI_Generated_Logo_2025-02-23_6c928111-f8d5-491b-990e-fc4ecd9387de (2).svg',
+                      color: Colors.white,
+                      width: 200,
+                      height: 200,
                     ),
                   ),
-                  SizedBox(height: size.height * 0.02),
                   Text(
                     'Welcome Back!',
                     style: TextStyle(
@@ -171,7 +172,9 @@ class LoginPage extends StatelessWidget {
                         splashFactory: NoSplash.splashFactory,
                       ),
                       onPressed: () {
-                        // TODO: Navigate to the account creation screen
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context){
+                          return CreateAccountPage();
+                        }));
                       },
                       child: Text(
                         'Create Account',

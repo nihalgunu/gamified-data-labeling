@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:boilermakexii_2/const.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'main.dart';
@@ -296,7 +297,6 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                                 ),
                               ],
                             ),
-                            // Optional Upload Button (no large image box)
                             Column(
                               children: [
                                 ElevatedButton(
@@ -415,12 +415,12 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                           children: [
                             // Logo at top
                             CircleAvatar(
-                              radius: 50,
-                              backgroundColor: Colors.white,
-                              child: Icon(
-                                Icons.person,
-                                size: 50,
+                              radius: 90,
+                              backgroundColor: Colors.transparent,
+                              child: SvgPicture.asset('assets/AI_Generated_Logo_2025-02-23_6c928111-f8d5-491b-990e-fc4ecd9387de (2).svg',
                                 color: darkBlue,
+                                width: 200,
+                                height: 200,
                               ),
                             ),
                             SizedBox(height: size.height * 0.02),
